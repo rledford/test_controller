@@ -1,1 +1,1 @@
-{"serial":{"port":"/dev/tty.usbmodem1411","baudrate":"4800"},"api":{"frequency":"5","target":"thingspeak","url":"seastate.api/v1/stuff","vin":"12faA","channel":"SomeChannel","key":"SomeKey"}}
+{"serial":{"port":"/dev/ttyO4","baudrate":"19200"},"api":{"frequency":"10","target":"thingspeak","url":"seastate.api/v1/stuff","vin":"12faA","channel":"SomeChannel","key":"SomeKey"}}

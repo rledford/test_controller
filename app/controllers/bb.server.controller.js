@@ -58,7 +58,7 @@ exports.updateConfig = (req, res) => {
   if (ser && ser.isOpen()) {
     ser.update({baudRate: Number(params.baudrate)},
     (err) => {
-      res.redirect('/');
+	res.redirect('/');
     });
   }
 };
