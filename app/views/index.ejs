@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Index</title>
+    <meta name='description' content='none'>
+    <meta name='author' content='none'>
+  </head>
+  <body style='text-align: center;'>
+    <div>
+      <h3>Device Status</h3>
+      <hr>
+      <div>
+        <% if (settings && settings.serial) { %>
+          <div>
+            <div><b>Port:</b> <%= settings.serial.port %></div>
+            <div><b>Baud:</b> <%= settings.serial.baudrate %></div>
+            <div><b>Data:</b> <span id='last-received'>Waiting...</span></div>
+          </div>
+          <hr>
+        <% } %>
+      </div>
+    <div>
+      <a href='/configure'><button>Configure</button></a>
+      <a href='/restart'><button>Restart Device</button></a>
+    </div>
+    <script type='text/javascript'>
+      let getLastReceivedSerial = () => {
+        console.log('get last serial data');
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          let elem = document.getElementById('last-received');
+          if (this.readyState === 4 && this.status < 400){
+            elem.innerHTML = this.responseText;
+          } else {
+            elem.innerHTML = 'No data.';
+          }
+        }
+        xhr.open('GET', 'api/serial/lastReceived')
+        xhr.send();
+      }
+      setInterval(getLastReceivedSerial, 1000);
+    </script>
+  </body>
+</html>
