@@ -44,15 +44,15 @@ exports.init = () => {
 
 exports.updateConfig = (req, res) => {
   console.log(req.body);
-  const {baudrate,frequency,target,url,channel,apiKey,vin} = req.body;
-  config.serial.baudrate = baudrate;
-  config.api.frequency = frequency;
-  config.api.target = target;
-  config.api.url = url;
-  config.api.vin = vin;
+  const params = req.body;
+  config.serial.baudrate = params.baudrate;
+  config.api.frequency = params.frequency;
+  config.api.target = params.target;
+  config.api.url = params.url;
+  config.api.vin = params.vin;
   if (target === 'thingspeak') {
-    config.api.channel = channel;
-    config.api.key = apiKey;
+    config.api.channel = params.channel;
+    config.api.key = params.apiKey;
   }
   saveConfig();
   if (ser && ser.isOpen()) {
