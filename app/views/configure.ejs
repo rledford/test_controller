@@ -83,7 +83,7 @@
       var seastateHTML = document.getElementById('seastate-settings').innerHTML
       var thingspeakHTML = document.getElementById('thingspeak-settings').innerHTML
       var onAPITargetChange = (target) => {
-        var apiTarget = document.getElementById('api-target');
+        let apiTarget = document.getElementById('api-target');
         apiTarget.innerHTML = target === 'seastate' ? seastateHTML : thingspeakHTML;
       }
     </script>

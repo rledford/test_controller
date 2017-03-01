@@ -50,7 +50,7 @@ exports.updateConfig = (req, res) => {
   config.api.target = params.target;
   config.api.url = params.url;
   config.api.vin = params.vin;
-  if (target === 'thingspeak') {
+  if (params.target === 'thingspeak') {
     config.api.channel = params.channel;
     config.api.key = params.apiKey;
   }
