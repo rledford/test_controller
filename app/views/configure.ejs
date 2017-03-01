@@ -78,6 +78,7 @@
 
     <script type='text/javascript'>
       //stringify the settings arg and parse
+      "use strict";
       var settings = JSON.parse('<%- JSON.stringify(settings) %>');
       var seastateHTML = document.getElementById('seastate-settings').innerHTML
       var thingspeakHTML = document.getElementById('thingspeak-settings').innerHTML
