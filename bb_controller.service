@@ -2,6 +2,9 @@
 Description=Starts bb_controller
 ConditionPathExists=|/usr/bin
 After=network.target
+
+[Timer]
+OnStartupSec=30
  
 [Service]
 WorkingDirectory=/home/debian/bb_controller
