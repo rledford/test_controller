@@ -18,9 +18,11 @@ module.exports = (app) => {
 
   app.route('/restart')
   .get((req, res) => {
-    exec('shutdown -r now', (err, stdout, stderr) => {
-      console.log(err, stdout, stderr);
-      res.redirect('/');
-    });
-  });
+		res.render('restart');
+	})
+	.post((req, res) => {
+		exec('shutdown -r now', (err, stdout, stderr) => {
+			console.log(err, stdout, stderr);
+		});
+	});
 }

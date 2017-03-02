@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8'>
-    <title>Index</title>
+    <title>Status</title>
     <meta name='description' content='none'>
     <meta name='author' content='none'>
   </head>
@@ -26,15 +26,14 @@
     </div>
     <script type='text/javascript'>
       let getLastReceivedSerial = () => {
-        console.log('get last serial data');
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
           let elem = document.getElementById('last-received');
           if (this.readyState === 4 && this.status < 400){
-            elem.innerHTML = this.responseText;
-          } else {
-            elem.innerHTML = 'No data.';
-          }
+						if (elem.innerHTML !== this.responseText) {
+							elem.innerHTML = this.responseText;
+						}
+					}
         }
         xhr.open('GET', 'api/serial/lastReceived')
         xhr.send();

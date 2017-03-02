@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="refresh" content="30;url=/" />
+		<title>Restart</title>
+	</head>
+	<body>
+		<div>
+			The device is restarting. You will be redirected to the status page in <span id='time-left'>30</span>
+		</div>
+		<script type='text/javascript'>
+			var timeLeft = 30;
+			var timer = function() {
+				timeLeft--;
+				if (timeLeft >= 0) {
+					document.getElementById('time-left').innerHTML = timeLeft;
+				}
+			}
+			setInterval(timer, 1000);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/restart", true);
+			xhr.send();
+		</script>
+	</body>
+</html>
